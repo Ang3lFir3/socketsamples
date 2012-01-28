@@ -5,7 +5,7 @@ head
 body
   span(id="the_time")
 script
-  var socket = io.connect('http://localhost:1337');
+  var socket = io.connect('http://socketsamples.herokuapp.com');
   socket.on('time', function (data) {
     $('#the_time').text(data.time);
     socket.emit('beerTime');
