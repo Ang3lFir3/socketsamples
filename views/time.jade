@@ -1,0 +1,12 @@
+head
+  script(type="text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
+  script(src="/socket.io/socket.io.js")
+
+body
+  span(id="the_time")
+script
+  var socket = io.connect('http://localhost:1337');
+  socket.on('time', function (data) {
+    $('#the_time').text(data.time);
+    socket.emit('beerTime');
+  });

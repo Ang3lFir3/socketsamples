@@ -1,0 +1,16 @@
+head
+  script(type="text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
+  script(src="/socket.io/socket.io.js")
+
+body
+  #repeatText
+  input(type="text", id="messageInput")
+  span(id="sendMessage") Send
+script
+  var socket = io.connect('http://localhost:1337');
+  socket.on('repeat', function (data) {
+   $("#repeatText").append("<p>" + data.message + "</p>"); 
+  });
+  $("#sendMessage").click(function(){
+    socket.emit('message', {body: $("#messageInput").val()});
+  });
