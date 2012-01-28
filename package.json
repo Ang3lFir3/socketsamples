@@ -1,0 +1,9 @@
+{
+  "name": "sock_samples",
+  "version": "0.0.1",
+  "dependencies": 
+  {
+    "express": "2.5.0",
+    "socket.io":"0.x.x"
+  }
+}
